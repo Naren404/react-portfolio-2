@@ -1,28 +1,31 @@
+import { Route, Routes } from 'react-router'
 import './App.css'
-import AboutMe from './components/AboutMe'
-import Contact from './components/Contact'
 import DarkModeSwitcher from './components/DarkModeSwitcher'
 import Footer from './components/Footer'
 import GoToTop from './components/GoToTop'
-import Hero from './components/Hero'
 import Navbar from './components/Navbar'
-import RecentWorks from './components/RecentWorks'
-import Skills from './components/Skills'
-import Summary from './components/Summary'
+import HomePage from './pages/HomePage'
+import SkillsPage from './pages/SkillsPage'
+import ProjectsPage from './pages/ProjectsPage'
+import AboutPage from './pages/AboutPage'
+import ContactPage from './pages/ContactPage'
 
 function App() {
   return (
     <>
       <DarkModeSwitcher />
-
+      
       <div className="wrapper-container">
         <Navbar />
-        <Hero />
-        <Summary />
-        <Skills />
-        <RecentWorks />
-        <AboutMe />
-        <Contact />
+        
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/skills' element={<SkillsPage />} />
+          <Route path='/projects' element={<ProjectsPage />} />
+          <Route path='/about' element={<AboutPage />} />
+          <Route path='/contact' element={<ContactPage />} />
+        </Routes>
+
         <Footer />
         <GoToTop />
       </div>
